@@ -12,11 +12,12 @@ function Popular() {
   
   //to run this function as soon as possible we use useEffect
   const getPopular = async () =>{
-    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`)
+
+    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
     const data = await api.json();
     setPopular(data.recipes);
     console.log(data);
-  }
+  };
   return (
     <div>
           <Wrapper>
@@ -89,4 +90,6 @@ const Gradient = styled.div`
   height: 100%;
   background: linear-gradient(rgba(0,0,0,0) rgba(0,0,0,0.5));
 `
-export default Popular
+export default Popular;
+
+//video ended at 42:00
