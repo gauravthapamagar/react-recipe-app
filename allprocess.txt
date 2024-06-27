@@ -1,0 +1,13 @@
+RECIPE APP PROCESS FROM START TO THE END
+
+1. npx create-react-app recipe-app
+2. clean the unnecessary files
+3. make components folder 
+4. also make pages folder
+5. make file in page called Home.jsx
+6. make file in component called popular.jsx
+7. create another file in component called veggie.jsx
+8. make pages.jsx file in pages inorder to add all the files in one page and then import to the app
+9. now we have to fetch all in popular from the api
+10. after displaying the recipes to the website install
+	framer-motion react-icons react-router-dom styled-components
