@@ -7,6 +7,7 @@ function Popular() {
   const [popular, setPopular] = useState([]);
   //it tells to run getPopular as soon as the component gets mounted
   const runOnce = useRef(false);
+
   useEffect(() => {
     if (!runOnce.current) {
       getPopular();
@@ -16,11 +17,20 @@ function Popular() {
   
   //to run this function as soon as possible we use useEffect
   const getPopular = async () =>{
-
-    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
-    const data = await api.json();
-    setPopular(data.recipes);
-    console.log(data);
+    
+    const check = localStorage.getItem('popular');
+    if(check){
+      setPopular(JSON.parse(check));
+    }
+  
+    else {
+      
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
+      const data = await api.json();
+      localStorage.setItem("popular", JSON.stringify(data.recipes));
+      setPopular(data.recipes);
+      console.log(data);
+    }
   };
   return (
     <div>
@@ -30,8 +40,8 @@ function Popular() {
               perPage:4,
               arrows: false,
               pagination: false,
-              drag: 'free',
-              gap:'3rem'
+              drag: "free",
+              gap: "3rem"
             }}> 
             {popular.map((recipe) => {
               return (
@@ -61,12 +71,12 @@ const Card = styled.div`
   position:relative;
 
   img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 2rem;
     position:absolute;
-    left:0%;
+    left:0;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
     
   }
   p{
@@ -79,8 +89,8 @@ const Card = styled.div`
     width:100%;
     text-align:center;
     font-weight: 600;
-    font-size:1rem;
-    height:40%;
+    font-size:0.9rem;
+    height:115%;
     display:flex;
     justify-content: center;
     align-items:center;
