@@ -10,4 +10,5 @@ RECIPE APP PROCESS FROM START TO THE END
 8. make pages.jsx file in pages inorder to add all the files in one page and then import to the app
 9. now we have to fetch all in popular from the api
 10. after displaying the recipes to the website install
-	framer-motion react-icons react-router-dom styled-components
+	framer-motion react-icons react-router-dom styled-components 
+also npm install @splidejs/react-splide

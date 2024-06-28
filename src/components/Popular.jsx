@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect,useState,useRef } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
@@ -6,8 +6,12 @@ function Popular() {
   
   const [popular, setPopular] = useState([]);
   //it tells to run getPopular as soon as the component gets mounted
+  const runOnce = useRef(false);
   useEffect(() => {
-    getPopular();
+    if (!runOnce.current) {
+      getPopular();
+      runOnce.current = true;
+    }
   }, []);
   
   //to run this function as soon as possible we use useEffect
