@@ -41,7 +41,7 @@ function Popular() {
               arrows: false,
               pagination: false,
               drag: "free",
-              gap: "3rem"
+              gap: "2rem"
             }}> 
             {popular.map((recipe) => {
               return (
@@ -61,7 +61,7 @@ function Popular() {
 }
 
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  margin: 2rem 0;
 `;
 
 const Card = styled.div`
