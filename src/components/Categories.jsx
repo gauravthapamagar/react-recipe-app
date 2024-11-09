@@ -33,8 +33,8 @@ const List = styled.div`
 
 const SLink = styled(NavLink)`
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   border-radius: 50%;
   margin-right: 2rem;
